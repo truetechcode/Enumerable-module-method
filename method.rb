@@ -6,7 +6,7 @@ module Enumerable
     while i < self.size
       if self.is_a?(Array) && block_given?
         yield(self[i])
-      elsif  block_given?
+      elsif block_given?
         yield(self.to_a[i])
       end
       i += 1
@@ -38,7 +38,7 @@ module Enumerable
       elsif yield(self[i])
         new_array.push(self.to_a[i])
       end
-      i+=1
+      i += 1
     end
     new_array
   end
@@ -56,32 +56,7 @@ module Enumerable
       else
         return true
       end
-      i+=1
-    end
-  end
-
-  # my_any?
-  def my_any?
-    i = 0
-    while i < self.size
-      if block_given?
-        if self.is_a? Array
-          if yield(self[i])
-            return true
-          else
-            return false
-          end
-        else
-          if yield(self.to_a[i])
-            return true
-          else
-            return false
-          end
-        end
-      else
-        return true
-      end
-      i+=1
+      i += 1
     end
   end
 end
