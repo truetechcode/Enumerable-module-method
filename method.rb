@@ -47,17 +47,14 @@ module Enumerable
   def my_all?
     i = 0
     while i < self.size
-      if block_given?
-        if self.is_a? Array
-          return yield(self[i]) ? true : false
-        else
-          return yield(self.to_a[i]) ? true : false
-        end
-      else
-        return true
+      if self.is_a?(Array) && block_given?
+        return yield(self[i]) ? true : false
+      elsif block_given?
+        return yield(self.to_a[i]) ? true : false
       end
-      i += 1
+      i+=1      
     end
+    true
   end
 end
 
