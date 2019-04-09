@@ -3,11 +3,11 @@ module Enumerable
   # my_each
   def my_each
     i = 0
-    while i < self.size
-      if self.is_a?(Array) && block_given?
+    while i < size
+      if is_a?(Array) && block_given?
         yield(self[i])
       elsif block_given?
-        yield(self.to_a[i])
+        yield(to_a[i])
       end
       i += 1
     end
@@ -17,11 +17,11 @@ module Enumerable
   # my_each_with_index
   def my_each_with_index
     i = 0
-    while i < self.size
-      if self.is_a?(Array) && block_given?
+    while i < size
+      if is_a?(Array) && block_given?
         yield(self[i], i)
       elsif block_given?
-        yield(self.to_a[i], i)
+        yield(to_a[i], i)
       end
       i += 1
     end
@@ -32,11 +32,11 @@ module Enumerable
   def my_select
     new_array = []
     i = 0
-    while i < self.size
-      if self.is_a?(Array) && yield(self[i])
+    while i < size
+      if is_a?(Array) && yield(self[i])
         new_array.push(self[i])
       elsif yield(self[i])
-        new_array.push(self.to_a[i])
+        new_array.push(to_a[i])
       end
       i += 1
     end
@@ -46,13 +46,14 @@ module Enumerable
   # my_all?
   def my_all?
     i = 0
-    while i < self.size
-      if self.is_a?(Array) && block_given?
+    while i < size
+      if is_a?(Array) && block_given?
         return yield(self[i]) ? true : false
       elsif block_given?
-        return yield(self.to_a[i]) ? true : false
+        return yield(to_a[i]) ? true : false
       end
-      i+=1      
+
+      i += 1
     end
     true
   end
