@@ -57,6 +57,43 @@ module Enumerable
     end
     true
   end
+
+  # my_none?
+  def my_none?
+    i = 0
+    while i < size
+      if is_a?(Array) && block_given?
+        return !yield(self[i]) ? true : false
+      elsif block_given?
+        return !yield(to_a[i]) ? true : false
+      end
+
+      i += 1
+    end
+    false
+  end
+
+  # my_count
+  def my_count
+    result = []
+    each do |element|
+      if block_given?
+        result << yield(element) if yield(element)
+      else
+        result << self
+      end
+    end
+    result.size
+  end
+
+  # my_map
+  def my_map
+    result = []
+    each do |element|
+      result << yield(element)
+    end
+    result
+  end
 end
 
 # (1..10).to_a.my_none? {|i| i==10}
