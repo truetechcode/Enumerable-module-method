@@ -1,4 +1,5 @@
 require './lib/method' #=> add this
+require 'rspec'
 
 class Array
   include Enumerable
@@ -7,7 +8,7 @@ end
 describe Enumerable do
   describe '#my_each' do
     it 'returns the values of each the modified element of an array or hash' do
-      expect((1..5).to_a.my_each { |s| s }).to eql((1..5).to_a.each { |s| s })
+      expect((1..5).to_a.my_each { |s| puts s }).to eql((1..5).to_a.each { |s| puts s })
     end
   end
 

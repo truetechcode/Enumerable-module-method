@@ -41,8 +41,8 @@ module Enumerable
   def my_all?
     i = 0
     while i < size
-      return yield(self[i]) ? true : false
       i += 1
+      return yield(self[i]) ? true : false
     end
     true
   end

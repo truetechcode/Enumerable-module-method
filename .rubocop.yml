@@ -1,3 +1,16 @@
 inherit_from: .rubocop_todo.yml
 
 # rubocop:disable Metrics/BlockLength, Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Style/GuardClause, Metrics/LineLength
+
+Metrics/LineLength:
+  Exclude:
+    - "**/*_spec.rb"
+    - "**/*_helper.rb"
+
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
