@@ -9,7 +9,8 @@ module Enumerable
       i += 1
     end
     return self unless block_given?
-    return result
+
+    result
   end
 
   # my_each_with_index
@@ -21,7 +22,8 @@ module Enumerable
       i += 1
     end
     return self unless block_given?
-    return result
+
+    result
   end
 
   # my_select
@@ -49,7 +51,8 @@ module Enumerable
   def my_none?
     i = 0
     while i < size
-      return !self.include?(self[i]) if yield(self[i])
+      return !include?(self[i]) if yield(self[i])
+
       i += 1
     end
     true
