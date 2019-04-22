@@ -6,7 +6,8 @@ class Array
 end
 
 describe Enumerable do
-    my_array = [1,2,3,4,5]
+    # my_array = [1,2,3,4,5]
+    let(:my_array) { [1,2,3,4,5] }
   describe '#my_each' do
     it 'returns the values of each the modified element of an array or hash' do
       expect(my_array.to_a.my_each { |s| s }).to eql(my_array.to_a.each { |s| s })
